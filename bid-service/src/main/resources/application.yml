@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: bid-service
+
+server:
+  port: 8082
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    operations-sorter: 'alpha'
+    tags-sorter: 'alpha'
