@@ -3,6 +3,7 @@ package com.tenderservice.service;
 import com.tenderservice.dto.TenderMapper;
 import com.tenderservice.dto.TenderRequest;
 import com.tenderservice.dto.TenderResponse;
+import com.tenderservice.exception.TenderNotFoundException;
 import com.tenderservice.repository.TenderRepository;
 import java.util.List;
 import java.util.UUID;
@@ -33,7 +34,7 @@ public class TenderService {
   public TenderResponse getOne(UUID id) {
     return repository.findById(id)
         .map(mapper::map)
-        .orElseThrow();
+        .orElseThrow(() -> TenderNotFoundException.withId(id));
   }
 
   @Transactional(readOnly = true)
